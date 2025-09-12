@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Circle {
     int Radius;
 
-    Circle(double rad){
+    Circle(int rad){
         Radius = rad;
     }
 
@@ -18,7 +18,6 @@ public class Circle {
         double circum = 2 * 3.14 * Radius;
         return circum;
     }
-     
+
 
 }
-

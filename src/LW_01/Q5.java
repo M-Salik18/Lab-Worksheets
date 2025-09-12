@@ -7,11 +7,13 @@ public class Q5 {
 
         double outerCircleArea = outerCircle.computeArea();
         double innerCircleArea = innerCircle.computeArea();
-        double shadedArea = innerCircleArea - outerCircleArea;
+        double shadedArea = outerCircleArea - innerCircleArea;
+        System.out.println("Area of shaded part is "+ shadedArea);
 
         double outerCircleCircum = outerCircle.computeCircumference();
         double innerCircleCircum = innerCircle.computeCircumference();
-        double shadedCircum = innerCircleCircum - outerCircleCircum;
+        double shadedCircum = outerCircleCircum - innerCircleCircum;
+        System.out.println("Circumference of shaded part is "+ shadedCircum);
 
 
     }

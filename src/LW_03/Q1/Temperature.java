@@ -13,7 +13,7 @@ public class Temperature {
 
 
     public double toCelsius() {
-         return celsius;
+        return celsius;
     }
 
     public void setCelsius() {
@@ -21,7 +21,6 @@ public class Temperature {
     }
 
     public double toFahrenheit() {
-
         return fahrenheit;
     }
 

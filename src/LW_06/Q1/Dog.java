@@ -1,6 +1,6 @@
-package LW_06;
+package LW_06.Q1;
 
-public class Dog extends Pet{
+public class Dog extends Pet {
     public String speak(){
         return "";
     }

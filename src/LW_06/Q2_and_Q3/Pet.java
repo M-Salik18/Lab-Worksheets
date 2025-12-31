@@ -1,4 +1,4 @@
-package LW_06;
+package LW_06.Q2_and_Q3;
 
 public class Pet {
     private String name;

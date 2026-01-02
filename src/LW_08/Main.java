@@ -1,5 +1,6 @@
 package LW_08;
 
+import LW_09.Home;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -145,7 +146,7 @@ public class Main {
         SignInpassword.setBounds(120, 450, 180, 25);
         frame.add(SignInpassword);
 
-        JButton signInBtn = new JButton("SignUp");
+        JButton signInBtn = new JButton("SignIn");
         signInBtn.setBounds(25,490,290,25);
         signInBtn.setBackground(Color.BLUE);
         signInBtn.setForeground(Color.WHITE);
@@ -167,6 +168,9 @@ public class Main {
                 try{
                     if(dbConnector.getData(email,password)){
                         JOptionPane.showMessageDialog(frame,"Sign in Successful");
+                        frame.dispose();
+                        new Home();
+
                     }else{
                         JOptionPane.showMessageDialog(frame,"Sign in unsuccessful");
                     }

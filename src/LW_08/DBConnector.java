@@ -34,7 +34,7 @@ public class DBConnector
     }
 
     boolean getData(String emailq, String passwordq) throws SQLException{
-        preparedStatement = connection.prepareStatement("Select email, password from user whereemail=? and password=?");
+        preparedStatement = connection.prepareStatement("Select email, password from user where email=? and password=?");
         preparedStatement.setString(1,emailq);
         preparedStatement.setString(2,passwordq);
         ResultSet rs = preparedStatement.executeQuery();

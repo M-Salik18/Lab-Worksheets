@@ -2,34 +2,28 @@ package LW_05.Q2;
 
 import java.util.ArrayList;
 
-public class Student extends Person{
+public class Student extends Person {
 
     private String studentID;
     private String year;
-    Degree degree;
-    private ArrayList<Course> coursesEnrolled = new ArrayList<>();
+    private Degree degree;
+    private ArrayList<Course> coursesEnrolled;
 
-    public Student(String name, String studentID, String year, Degree degree, ArrayList<Course> coursesEnrolled) {
+    public Student(String name, String studentID, String year) {
         super(name);
         this.studentID = studentID;
         this.year = year;
-        this.degree = degree;
-        this.coursesEnrolled = coursesEnrolled;
+        this.coursesEnrolled = new ArrayList<>();
+        this.degree = null;
     }
 
-    public Student(String name) {
-        super(name);
+    // Getters & Setters
+    public String getStudentID() {
+        return studentID;
     }
 
-    @Override
-    public void displayInfo() {
-        System.out.println("Student info: "+studentID + " year "+ year);
-        System.out.println("Degree info: ");
-        degree.getName();
-        for (Course c: coursesEnrolled){
-            c.getName();
-        }
-
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
     public String getYear() {
@@ -40,37 +34,53 @@ public class Student extends Person{
         this.year = year;
     }
 
-    public String getStudentID() {
-        return studentID;
+    // Register/Display Degree
+    public void registerDegree(Degree degree) {
+        this.degree = degree;
+        degree.setNumberOfStudents(degree.getNumberOfStudents() + 1);
+        System.out.println("Student " + getStudentID() + " registered for " + degree.getName());
     }
 
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    //register for a degree
-    public void registerDegree(Degree degree){
-
-    }
-
-    //Display degree info
-    public void displayDegreeInfo(){
-        degree.displayInfo();
-    }
-
-    public void enrollCourse(Course course){
-        coursesEnrolled.add(course);
-    }
-
-
-    public void unEnrollCourse(Course course){
-        coursesEnrolled.remove(course);
-    }
-
-    public void listCoursesEnrolled(){
-        for(Course course: coursesEnrolled){
-            course.getName();
+    public void displayDegreeInfo() {
+        if (degree != null) {
+            degree.displayInfo();
+        } else {
+            System.out.println("No degree assigned.");
         }
     }
 
+    // Enroll/Unenroll Courses
+    public void enrollCourse(Course course) {
+        coursesEnrolled.add(course);
+    }
+
+    public void unEnrollCourse(Course course) {
+        coursesEnrolled.remove(course);
+    }
+
+    public void listCoursesEnrolled() {
+        if (coursesEnrolled.isEmpty()) {
+            System.out.println("No courses enrolled.");
+        } else {
+            for (Course c : coursesEnrolled) {
+                System.out.println("- " + c.getName());
+            }
+        }
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Student Name: " + getName());
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Year: " + year);
+
+        if (degree != null) {
+            System.out.println("Degree: " + degree.getName());
+        } else {
+            System.out.println("Degree: Not registered");
+        }
+
+        System.out.println("Courses Enrolled:");
+        listCoursesEnrolled();
+    }
 }

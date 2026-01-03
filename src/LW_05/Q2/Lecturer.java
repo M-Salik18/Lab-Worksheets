@@ -1,20 +1,22 @@
 package LW_05.Q2;
 
-
 import java.util.ArrayList;
 
-public class Lecturer extends Person{
+public class Lecturer extends Person {
+
     private String position;
+    private Department department;
+    private ArrayList<Course> coursesTeaching;
 
-    Department department;
-
-    ArrayList<Course> coursesTeaching;
-
+    // Constructor
     public Lecturer(String name, String position) {
         super(name);
         this.position = position;
+        this.coursesTeaching = new ArrayList<>();
+        this.department = null;
     }
 
+    // Getters and setters
     public String getPosition() {
         return position;
     }
@@ -31,47 +33,45 @@ public class Lecturer extends Person{
         this.department = department;
     }
 
-    public ArrayList<Course> getCoursesTeaching() {
-        return coursesTeaching;
+    // Add/Remove course
+    public void addCourse(Course course) {
+        coursesTeaching.add(course);
     }
 
-    public void setCoursesTeaching(ArrayList<Course> coursesTeaching) {
-        this.coursesTeaching = coursesTeaching;
+    public void removeCourse(Course course) {
+        coursesTeaching.remove(course);
     }
 
-    public Lecturer(String name) {
-        super(name);
+    public void listCoursesTeaching() {
+        if (coursesTeaching.isEmpty()) {
+            System.out.println("No courses assigned.");
+        } else {
+            for (Course c : coursesTeaching) {
+                System.out.println("- " + c.getName());
+            }
+        }
+    }
+
+    public void displayDepartmentInfo() {
+        if (department != null) {
+            department.displayInfo();
+        } else {
+            System.out.println("No department assigned.");
+        }
     }
 
     @Override
     public void displayInfo() {
-        System.out.println("Lecturer Information: " + getName() + " " + getPosition());
-        System.out.println("Courses taught: ");
-        for (Course c : coursesTeaching){
-            c.getName();
+        System.out.println("Lecturer Name: " + getName());
+        System.out.println("Position: " + position);
+
+        if (department != null) {
+            System.out.println("Department: " + department.getName());
+        } else {
+            System.out.println("Department: Not assigned");
         }
-        System.out.println("Department he/she works: " + department.getName());
 
-
-    }
-
-    //Department info
-    public void displayDepartment(){
-        department.displayInfo();
-    }
-
-    public void addCourse(Course newCourse){
-        coursesTeaching.add(newCourse);
-    }
-
-    public void removeCourse(Course course){
-        coursesTeaching.remove(course);
-    }
-
-    //List of courses teaching
-    public void listCourseTeaching(){
-        for(Course course: coursesTeaching){
-            course.getName();
-        }
+        System.out.println("Courses Teaching:");
+        listCoursesTeaching();
     }
 }

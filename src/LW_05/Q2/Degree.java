@@ -5,17 +5,15 @@ import java.util.ArrayList;
 public class Degree {
     private String name;
     private int numberOfStudents;
-    private ArrayList<Course> courseOffering = new ArrayList<>();
+    private ArrayList<Course> coursesOffering;
 
-    public void displayInfo(){
-        System.out.println("Degree details: ");
-        System.out.println("Name: "+name+ " number of students: "+ numberOfStudents);
-        System.out.println("Courses offered: ");
-        for (Course course: courseOffering){
-            course.getName();
-        }
+    public Degree(String name) {
+        this.name = name;
+        this.numberOfStudents = 0;
+        this.coursesOffering = new ArrayList<>();
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -32,18 +30,29 @@ public class Degree {
         this.numberOfStudents = numberOfStudents;
     }
 
-    public void offerCourse(Course course){
-        courseOffering.add(course);
+    // Offer/Withdraw Courses
+    public void offerCourse(Course course) {
+        coursesOffering.add(course);
     }
 
-    public void withdrawCourse(Course course){
-        courseOffering.remove(course);
+    public void withdrawCourse(Course course) {
+        coursesOffering.remove(course);
     }
 
-    public void listofCoursesOffering(){
-        System.out.println("Courses offered: ");
-        for (Course course: courseOffering){
-            course.getName();
+    public void listCoursesOffering() {
+        if (coursesOffering.isEmpty()) {
+            System.out.println("No courses offered.");
+        } else {
+            for (Course c : coursesOffering) {
+                System.out.println("- " + c.getName());
+            }
         }
+    }
+
+    public void displayInfo() {
+        System.out.println("Degree Name: " + name);
+        System.out.println("Number of Students: " + numberOfStudents);
+        System.out.println("Courses Offered:");
+        listCoursesOffering();
     }
 }

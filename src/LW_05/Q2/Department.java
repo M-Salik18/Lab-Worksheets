@@ -12,8 +12,10 @@ public class Department {
         this.name = name;
         this.coursesOffering = new ArrayList<>();
         this.lecturersBelongsTo = new ArrayList<>();
+        this.departmentHead = null;
     }
 
+    // Getters & Setters
     public String getName() {
         return name;
     }
@@ -21,18 +23,57 @@ public class Department {
     public void setName(String name) {
         this.name = name;
     }
+
+    // Appoint/Display Head
+    public void appointDepartmentHead(Lecturer lecturer) {
+        this.departmentHead = lecturer;
+    }
+
+    public void displayDepartmentHeadInfo() {
+        if (departmentHead != null) {
+            departmentHead.displayInfo();
+        } else {
+            System.out.println("No department head assigned.");
+        }
+    }
+
+    // Courses & Lecturers
+    public void offerCourse(Course course) {
+        coursesOffering.add(course);
+    }
+
+    public void withdrawCourse(Course course) {
+        coursesOffering.remove(course);
+    }
+
+    public void addLecturer(Lecturer lecturer) {
+        lecturersBelongsTo.add(lecturer);
+    }
+
+    public void removeLecturer(Lecturer lecturer) {
+        lecturersBelongsTo.remove(lecturer);
+    }
+
+    // Display Department Info
     public void displayInfo() {
         System.out.println("Department Name: " + name);
 
-        System.out.println("\nCourses Offered:");
-
-        for (Course c : coursesOffering) {
-            c.getName();
+        if (!coursesOffering.isEmpty()) {
+            System.out.println("Courses Offered:");
+            for (Course c : coursesOffering) {
+                System.out.println("- " + c.getName());
+            }
+        } else {
+            System.out.println("No courses offered.");
         }
 
-        System.out.println("\nLecturers:");
-        for (Lecturer l : lecturersBelongsTo) {
-            l.getName();
+        if (!lecturersBelongsTo.isEmpty()) {
+            System.out.println("Lecturers:");
+            for (Lecturer l : lecturersBelongsTo) {
+                System.out.println("- " + l.getName());
+            }
+        } else {
+            System.out.println("No lecturers assigned.");
         }
     }
 }

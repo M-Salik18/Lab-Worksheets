@@ -7,14 +7,15 @@ public class Course {
     private Lecturer lecturerInCharge;
     private Degree degreeBelongsTo;
 
-    public Course(String name, String enrollType, Integer numberOfStudentsEnrolled, Lecturer lecturerInCharge, Degree degreeBelongsTo) {
+    public Course(String name) {
         this.name = name;
-        this.enrollType = enrollType;
-        this.numberOfStudentsEnrolled = numberOfStudentsEnrolled;
-        this.lecturerInCharge = lecturerInCharge;
-        this.degreeBelongsTo = degreeBelongsTo;
+        this.enrollType = "Full-time";
+        this.numberOfStudentsEnrolled = 0;
+        this.lecturerInCharge = null;
+        this.degreeBelongsTo = null;
     }
 
+    // Getters & Setters
     public String getName() {
         return name;
     }
@@ -55,14 +56,24 @@ public class Course {
         this.degreeBelongsTo = null;
     }
 
+    // Display course info safely
     public void displayInfo() {
         System.out.println("Course Name: " + name);
         System.out.println("Enroll Type: " + enrollType);
         System.out.println("Number of Students Enrolled: " + numberOfStudentsEnrolled);
-        System.out.println("Lecturer In Charge:");
-        lecturerInCharge.displayInfo();
-        System.out.println("Degree Belongs To:");
-        degreeBelongsTo.displayInfo();
 
+        System.out.println("Lecturer In Charge:");
+        if (lecturerInCharge != null) {
+            lecturerInCharge.displayInfo();
+        } else {
+            System.out.println("Not assigned.");
+        }
+
+        System.out.println("Degree Belongs To:");
+        if (degreeBelongsTo != null) {
+            degreeBelongsTo.displayInfo();
+        } else {
+            System.out.println("Not assigned.");
+        }
     }
 }

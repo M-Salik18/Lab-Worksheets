@@ -15,7 +15,6 @@ public class Department {
         this.departmentHead = null;
     }
 
-    // Getters & Setters
     public String getName() {
         return name;
     }
@@ -24,7 +23,6 @@ public class Department {
         this.name = name;
     }
 
-    // Appoint/Display Head
     public void appointDepartmentHead(Lecturer lecturer) {
         this.departmentHead = lecturer;
     }
@@ -37,7 +35,6 @@ public class Department {
         }
     }
 
-    // Courses & Lecturers
     public void offerCourse(Course course) {
         coursesOffering.add(course);
     }
@@ -54,7 +51,6 @@ public class Department {
         lecturersBelongsTo.remove(lecturer);
     }
 
-    // Display Department Info
     public void displayInfo() {
         System.out.println("Department Name: " + name);
 

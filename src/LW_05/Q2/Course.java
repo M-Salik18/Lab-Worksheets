@@ -15,7 +15,6 @@ public class Course {
         this.degreeBelongsTo = null;
     }
 
-    // Getters & Setters
     public String getName() {
         return name;
     }
@@ -56,7 +55,6 @@ public class Course {
         this.degreeBelongsTo = null;
     }
 
-    // Display course info safely
     public void displayInfo() {
         System.out.println("Course Name: " + name);
         System.out.println("Enroll Type: " + enrollType);

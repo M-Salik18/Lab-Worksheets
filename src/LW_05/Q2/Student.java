@@ -17,7 +17,6 @@ public class Student extends Person {
         this.degree = null;
     }
 
-    // Getters & Setters
     public String getStudentID() {
         return studentID;
     }
@@ -34,7 +33,6 @@ public class Student extends Person {
         this.year = year;
     }
 
-    // Register/Display Degree
     public void registerDegree(Degree degree) {
         this.degree = degree;
         degree.setNumberOfStudents(degree.getNumberOfStudents() + 1);

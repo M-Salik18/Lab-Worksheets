@@ -8,7 +8,6 @@ public class Lecturer extends Person {
     private Department department;
     private ArrayList<Course> coursesTeaching;
 
-    // Constructor
     public Lecturer(String name, String position) {
         super(name);
         this.position = position;
@@ -16,7 +15,6 @@ public class Lecturer extends Person {
         this.department = null;
     }
 
-    // Getters and setters
     public String getPosition() {
         return position;
     }
@@ -33,7 +31,6 @@ public class Lecturer extends Person {
         this.department = department;
     }
 
-    // Add/Remove course
     public void addCourse(Course course) {
         coursesTeaching.add(course);
     }

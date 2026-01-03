@@ -13,7 +13,6 @@ public class Degree {
         this.coursesOffering = new ArrayList<>();
     }
 
-    // Getters and setters
     public String getName() {
         return name;
     }
@@ -30,7 +29,6 @@ public class Degree {
         this.numberOfStudents = numberOfStudents;
     }
 
-    // Offer/Withdraw Courses
     public void offerCourse(Course course) {
         coursesOffering.add(course);
     }
